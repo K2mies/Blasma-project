@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7el5cnpwql6o"]
+
+[ext_resource type="Shader" uid="uid://beqtw5cc54ep4" path="res://Shaders/UVtest00.gdshader" id="1_2wnjo"]
+[ext_resource type="Script" uid="uid://dyfbt7a05ney" path="res://Scripts/UvMouseTest00.gd" id="2_kapw4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kapw4"]
+shader = ExtResource("1_2wnjo")
+shader_parameter/u_resolution = Vector2(0, 0)
+shader_parameter/u_mouse = Vector2(0, 0)
+shader_parameter/u_time = Vector2(0, 0)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_kapw4")
+offset_right = 1151.0
+offset_bottom = 651.0
+script = ExtResource("2_kapw4")
