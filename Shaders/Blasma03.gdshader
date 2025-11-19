@@ -89,10 +89,10 @@ void fragment() {
 	);
 	
 	// ----------------------------------------------------------------- wave mixings
-	vec4 c1 = 	vec4(sin1, sin1, sin1, 1.f);
-	vec4 c2 = 	vec4(sin2, sin2, sin2, 1.f);
-	vec4 c =	mix(c1, c2, .5f);
+	vec4 c1 = 	vec4( sin1, sin1, sin1, 1.f );
+	vec4 c2 = 	vec4( sin2, sin2, sin2, 1.f );
+	vec4 c =	mix( c1, c2, .5f );
 	
 	// ---------------------------------------------------------------------- output
-	COLOR = clamp(c, 0, 1);
+	COLOR = clamp( c, 0, 1 );
 }
