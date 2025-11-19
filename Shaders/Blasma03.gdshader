@@ -77,7 +77,7 @@ void fragment() {
 		scale
 	);
 	
-		// 3. Radial function call
+	// 3. Radial function call
 	float sin2 = radialWave(
 		uv_scaled.x,
 		uv_scaled.y,
