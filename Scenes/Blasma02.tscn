@@ -5,14 +5,14 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wul80"]
 shader = ExtResource("1_b4rxa")
 shader_parameter/uv_scale = 20.0
-shader_parameter/ring_density = 0.88
+shader_parameter/ring_density = 0.4
 shader_parameter/center_offset_x = 10.0
 shader_parameter/center_offset_y = 10.0
-shader_parameter/speed = 5.0
+shader_parameter/speed = 3.0
 
 [node name="Node2D" type="Node2D"]
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_wul80")
-offset_right = 634.0
-offset_bottom = 634.0
+offset_right = 650.0
+offset_bottom = 650.0

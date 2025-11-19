@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://drmv3bih3hs7l"]
+
+[ext_resource type="Shader" uid="uid://6cpco7mvjphf" path="res://Shaders/Blasma03.gdshader" id="1_6etgm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lego1"]
+shader = ExtResource("1_6etgm")
+shader_parameter/speed = 5.0
+shader_parameter/uv_scale = 20.0
+shader_parameter/value = 0.1
+shader_parameter/direction = Vector2(0.2, 0)
+shader_parameter/scale = 20.0
+shader_parameter/ring_density = 0.4
+shader_parameter/center_offset_x = 10.0
+shader_parameter/center_offset_y = 10.0
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_lego1")
+offset_right = 649.0
+offset_bottom = 649.0

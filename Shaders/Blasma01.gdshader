@@ -1,12 +1,25 @@
 shader_type canvas_item;
+/*
+*	STRIPE WAVE SHADER
+*	shader that creates a striped wave 
+*/
 
+// -------------------------------------------------------------------- uniforms
 uniform vec2 direction =		vec2(10.0f, 0.f);
 uniform float uv_scale =		1.f;
 uniform float scale = 		20.f;
 uniform float speed = 		5.f;
 uniform float value =		0.5f;
 
-float stripe( float x, float y, float vx, float vy, float phase, float Length )
+// ------------------------------------------------------------------- functions
+float stripeWave(
+	float x,
+	float y,
+	float vx,
+	float vy,
+	float phase,
+	float Length
+)
 {
 	vec2 pos =				vec2( x, y );
 	vec2 direction_v =		vec2( vx, vy );
@@ -31,7 +44,7 @@ void fragment() {
 	float current_phase = TIME * speed;
 	
 	// 3. call your custom function
-	float sin1 = stripe(
+	float sin1 = stripeWave(
 		uv_scaled.x,
 		uv_scaled.y,
 		direction.x,

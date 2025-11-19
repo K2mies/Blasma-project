@@ -4,9 +4,9 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_myo0e"]
 shader = ExtResource("1_nawl5")
-shader_parameter/scale = 1.34
-shader_parameter/uv_scale = 0.33
 shader_parameter/direction = Vector2(10, 0)
+shader_parameter/uv_scale = 0.33
+shader_parameter/scale = 1.34
 shader_parameter/speed = 5.0
 shader_parameter/value = 0.5
 
@@ -14,5 +14,5 @@ shader_parameter/value = 0.5
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_myo0e")
-offset_right = 1150.0
+offset_right = 1156.0
 offset_bottom = 640.0
