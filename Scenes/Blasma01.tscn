@@ -11,5 +11,5 @@ shader_parameter/amplitude = 1.0
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_vysh7")
-offset_right = 682.0
+offset_right = 1148.0
 offset_bottom = 682.0

@@ -1,0 +1,13 @@
+63f7b34db8d8cdea90c76aacccf841ec
+::res://::1763548534
+icon.svg::CompressedTexture2D::692208876874126840::1763301428::1763323579::1::::<><><>0<>0<>09bee2f2504275bb5fba9d997f8ec737<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+::res://Scenes/::1763368134
+Blasma00.tscn::PackedScene::7113794827481679203::1763368134::0::1::::<><><>0<>0<><>::uid://c3dcx2233nhkb::::res://Shaders/Blasma01.gdshader
+Blasma01.tscn::PackedScene::7882927740084324940::1763313227::0::1::::<><><>0<>0<><>::uid://bc420bhb3hu7b::::res://Shaders/Blasma00.gdshader
+UVtest00.tscn::PackedScene::4641442777704685528::1763316173::0::1::::<><><>0<>0<><>::uid://beqtw5cc54ep4::::res://Shaders/UVtest00.gdshader<>uid://dyfbt7a05ney::::res://Scripts/UvMouseTest00.gd
+::res://Scripts/::1763312184
+UvMouseTest00.gd::GDScript::260418015181265748::1763312184::0::1::::<>ColorRect<><>0<>0<><>::
+::res://Shaders/::1763368067
+Blasma00.gdshader::Shader::2588349392909349481::1763310282::0::1::::<><><>0<>0<><>::
+Blasma01.gdshader::Shader::6744486090908935513::1763368067::0::1::::<><><>0<>0<><>::
+UVtest00.gdshader::Shader::2701400591560876595::1763368067::0::1::::<><><>0<>0<><>::
