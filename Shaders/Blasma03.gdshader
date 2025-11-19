@@ -29,7 +29,7 @@ float stripeWave(
 	vec2 pos =						vec2( x, y );
 	vec2 direction_v =				vec2( vx, vy );
 	float dot_product =				dot( direction_v, pos );
-	float gradient = dot_product * Length + phase; //gradient interpelation
+	float gradient = dot_product * Length + phase;
 	gradient = gradient * value + value;
 	return sin( gradient );	
 }
@@ -61,7 +61,7 @@ void fragment() {
 	// ------------------------------------------------------------------- variables
 
 	// 1. Get scaled UV coordinates
-	vec2 uv_scaled = UV * uv_scale; //scale up pattern coordinates
+	vec2 uv_scaled = UV * uv_scale;
 	
 	// 2. Use TIME for animation
 	float current_phase = TIME * speed;
