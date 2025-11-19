@@ -49,7 +49,7 @@ float radialWave(
 	vec2 distance_vector =			pos - centre;
 	
 	// 2. Calculate the magnitude of the distance vector (Math.sqrt(dx*dx + dy*dy))
-	 float distance_from_centre = length( distance_vector );
+	float distance_from_centre = length( distance_vector );
 	
 	// 3. Apply scaling and phase shift
 	float gradient = distance_from_centre * diameter + phase;
