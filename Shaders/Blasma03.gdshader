@@ -8,9 +8,9 @@ shader_type canvas_item;
 uniform float speed = 				5.f;
 uniform float uv_scale =			20.f;
 // ------------------------------------------------------------- stripe uniforms
-uniform float value =				.1f;
 uniform vec2 direction =			vec2(.2f, 0.f);
 uniform float scale = 				20.f;
+uniform float value =				.1f;
 // ------------------------------------------------------------- radial uniforms
 uniform float ring_density = 		.4f;
 uniform float center_offset_x =		10.f;				//to center, half uv_scale
@@ -29,8 +29,9 @@ float stripeWave(
 	vec2 pos =						vec2( x, y );
 	vec2 direction_v =				vec2( vx, vy );
 	float dot_product =				dot( direction_v, pos );
-	float gradient = dot_product * Length + phase;
-	gradient = gradient * value + value;
+	float gradient = 				dot_product * Length + phase;
+	gradient = 						gradient * value + value;
+	
 	return sin( gradient );	
 }
 
@@ -49,11 +50,11 @@ float radialWave(
 	vec2 distance_vector =			pos - centre;
 	
 	// 2. Calculate the magnitude of the distance vector (Math.sqrt(dx*dx + dy*dy))
-	float distance_from_centre = length( distance_vector );
+	float distance_from_centre =	length( distance_vector );
 	
 	// 3. Apply scaling and phase shift
-	float gradient = distance_from_centre * diameter + phase;
-
+	float gradient = 				distance_from_centre * diameter + phase;
+	
 	return sin( gradient );
 }
 void fragment() {
@@ -61,10 +62,10 @@ void fragment() {
 	// ------------------------------------------------------------------- variables
 
 	// 1. Get scaled UV coordinates
-	vec2 uv_scaled = UV * uv_scale;
+	vec2 uv_scaled = 		UV * uv_scale;
 	
 	// 2. Use TIME for animation
-	float current_phase = TIME * speed;
+	float current_phase =	TIME * speed;
 	
 	// -------------------------------------------------------------- function calls
 	// 3. striped function call
@@ -87,7 +88,7 @@ void fragment() {
 		current_phase
 	);
 	
-	// ----------------------------------------------------------------- wave mixing
+	// ----------------------------------------------------------------- wave mixings
 	vec4 c1 = 	vec4(sin1, sin1, sin1, 1.f);
 	vec4 c2 = 	vec4(sin2, sin2, sin2, 1.f);
 	vec4 c =	mix(c1, c2, .5f);
