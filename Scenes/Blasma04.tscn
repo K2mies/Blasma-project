@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://bs4dtpywwqxiq"]
+
+[ext_resource type="Script" uid="uid://cyfpuauifa53d" path="res://Scripts/createAndAsignPallete.gd" id="1_cn0le"]
+[ext_resource type="Shader" uid="uid://bdj48utyhb40r" path="res://Shaders/Blasma05.gdshader" id="1_nu611"]
+[ext_resource type="Texture2D" uid="uid://cxtwtyioh8gei" path="res://imgs/rainbow-gradient-2391.png" id="2_cn0le"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s7va6"]
+shader = ExtResource("1_nu611")
+shader_parameter/lut_texture = ExtResource("2_cn0le")
+shader_parameter/uv_scale = 20.0
+shader_parameter/ring_density = 0.4
+shader_parameter/center_offset_x = 10.0
+shader_parameter/center_offset_y = 10.0
+shader_parameter/speed = 3.0
+
+[node name="Node2D" type="Node2D"]
+metadata/_edit_vertical_guides_ = [-85.0]
+metadata/_edit_horizontal_guides_ = [69.0]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_s7va6")
+offset_right = 40.5797
+offset_bottom = 40.5797
+scale = Vector2(15.91929, 15.91929)
+script = ExtResource("1_cn0le")

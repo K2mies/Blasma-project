@@ -4,12 +4,12 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lego1"]
 shader = ExtResource("1_6etgm")
-shader_parameter/speed = 5.0
+shader_parameter/speed = 4.93
 shader_parameter/uv_scale = 20.0
 shader_parameter/direction = Vector2(0.75, 0)
-shader_parameter/scale = 11.42
-shader_parameter/value = 0.1
-shader_parameter/ring_density = 3.2
+shader_parameter/scale = 5.06
+shader_parameter/value = 0.08
+shader_parameter/ring_density = 0.8
 shader_parameter/center_offset_x = 10.0
 shader_parameter/center_offset_y = 10.0
 

@@ -1,9 +1,9 @@
-res://Scenes/Blasma00.tscn
-res://Shaders/Blasma01.gdshader
-res://Shaders/Blasma00.gdshader
+res://Scenes/Blasma04.tscn
+res://Shaders/Blasma05.gdshader
 res://Shaders/UVtest00.gdshader
-res://Scenes/Blasma01.tscn
-res://Scenes/Blasma02.tscn
+res://Shaders/Blasma00.gdshader
+res://Shaders/Blasma01.gdshader
 res://Shaders/Blasma02.gdshader
-res://Scenes/Blasma03.tscn
 res://Shaders/Blasma03.gdshader
+res://Shaders/Blasma04.gdshader
+res://Scripts/createAndAsignPallete.gd
