@@ -20,8 +20,8 @@ float smoothWave(	vec2 coord,
 					float length_scale
 )
 {
-	vec2 direction = vec2( vx, vy );
-	direction = normalize( direction );
+	vec2 direction =	vec2( vx, vy );
+	direction =			normalize( direction );
 
 	float dot_product = dot( direction, coord );
 	float input_value = dot_product * length_scale + phase;
@@ -29,8 +29,7 @@ float smoothWave(	vec2 coord,
 	return ( sin( input_value ) * u_value ) + u_value;
 }
 
-float radialWave(
-					vec2 coord,
+float radialWave(	vec2 coord,
 					float center_x,
 					float center_y,
 					float phase,
@@ -56,9 +55,9 @@ float radialWave(
 
 void fragment() {
 	// ----------------------------------------------------------------------- enums
-	int WAVE_A = 0;
-	int WAVE_B = 1;
-	int WAVE_C = 2;
+	int wave_a = 0;
+	int wave_b = 1;
+	int wave_c = 2;
 
 	// ------------------------------------------------------------------- variables
 	vec2 st = UV * 1.f;
@@ -66,24 +65,32 @@ void fragment() {
 
 	// ---------------------------------------------------------------- radial waves
 	float max_functions = 2.f;
-	vec4 p1 = wave_params[WAVE_A];
+	vec4 p1 = wave_params[wave_a];
 	s += radialWave( st, p1.x, p1.y, p1.z + TIME * u_speed, p1.w );
 
-	vec4 p2 = wave_params[WAVE_B];
+	vec4 p2 = wave_params[wave_b];
 	s += radialWave( st, p2.x, p2.y, p2.z + TIME * u_speed, p2.w );
 
-//	vec4 p3 = wave_params[WAVE_C];
+//	vec4 p3 = wave_params[wave_c];
 //	s += radialWave( st, p3.x, p3.y, p3.z + TIME * u_speed, p3.w );
 
 	// ---------------------------------------------------------------- smooth waves
-//	vec4 p1 = wave_params[WAVE_A];
+//	float max_functions = 3.f;
+//	vec4 p1 = wave_params[wave_a];
 //	s += smoothWave( st, p1.x, p1.y, p1.z + TIME * u_speed, p1.w );
 
-//	vec4 p2 = wave_params[WAVE_B];
+//	vec4 p2 = wave_params[wave_b];
 //	s += smoothWave( st, p2.x, p2.y, p2.z + TIME * u_speed, p2.w );
 
-//	vec4 p3 = wave_params[WAVE_C];
+//	vec4 p3 = wave_params[wave_c];
 //	s += smoothWave( st, p3.x, p3.y, p3.z + TIME * u_speed, p3.w );
+	// ----------------------------------------------------------------- mixed waves
+//	float max_functions = 2.f;
+//	vec4 p1 = wave_params[wave_a];
+//	s += radialWave( st, p1.x, p1.y, p1.z + TIME * u_speed, p1.w );
+	
+//	vec4 p2 = wave_params[wave_b];
+//	s += smoothWave( st, p2.x, p2.y, p2.z + TIME * u_speed, p2.w );
 
 	s /= max_functions; //not exactly sure why this is needed but it seems to make a difference.
 	// my guess would be because it creates a fractional value from those that have been added together.
