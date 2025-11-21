@@ -37,7 +37,7 @@ float radialWave(
 	// 4. Apply Math.floor equivalent (creates the hard-edged steps/rings)
     //float stepped_value = floor(gradient);
 	
-	return sin( gradient );
+	return ( sin( gradient ) * .5f ) + .5f;
 }
 
 void fragment() {

@@ -1,4 +1,8 @@
 shader_type canvas_item;
+/*
+*	LUT TEXTURE TEST
+*	attempt at using a lut texture
+*/
 
 uniform sampler2D lut_texture;
 

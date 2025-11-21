@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=4 uid="uid://ncaxon2n6kg7"]
+
+[ext_resource type="Shader" uid="uid://782irrpg8uqn" path="res://Shaders/Blasma07.gdshader" id="1_7vftp"]
+[ext_resource type="Texture2D" uid="uid://bfr7eayo7i17x" path="res://imgs/lookup.png" id="2_5xm4h"]
+[ext_resource type="Script" uid="uid://ckpy5dm41jbvd" path="res://Scripts/createAndAsignPallete01.gd" id="3_5xm4h"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1lpj5"]
+shader = ExtResource("1_7vftp")
+shader_parameter/lut_texture = ExtResource("2_5xm4h")
+shader_parameter/wave_params = PackedVector4Array(1, 0, 0, 10, -0.13, -0.24, 8.38, 15, -0.79, 4.02, 5.6, 20)
+shader_parameter/u_time = 0.0
+shader_parameter/u_speed = 1.0
+shader_parameter/u_resolution = Vector2(1024, 768)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_1lpj5")
+offset_right = 644.0
+offset_bottom = 644.0
+script = ExtResource("3_5xm4h")

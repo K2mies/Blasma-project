@@ -1,5 +1,8 @@
 shader_type canvas_item;
-
+/*
+*	ANTTI EXAMPLE SHADER
+*	shader code provided in the subject by Antti as a starting point
+*/
 //uniform float speed = 1.f;
 uniform float speed = 1.f;
 uniform float amplitude = 1.f;

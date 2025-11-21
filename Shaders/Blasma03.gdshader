@@ -32,7 +32,7 @@ float stripeWave(
 	float gradient = 				dot_product * Length + phase;
 	gradient = 						gradient * value + value;
 	
-	return sin( gradient );	
+	return ( sin( gradient ) * .5f ) + .5f;	
 }
 
 float radialWave(
@@ -55,7 +55,7 @@ float radialWave(
 	// 3. Apply scaling and phase shift
 	float gradient = 				distance_from_centre * diameter + phase;
 	
-	return sin( gradient );
+	return ( sin( gradient ) * .5f) + .5f;
 }
 void fragment() {
 	

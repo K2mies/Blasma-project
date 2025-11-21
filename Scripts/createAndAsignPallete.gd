@@ -1,5 +1,7 @@
 extends ColorRect
 
+#Program to create a lut texture and asign it to a radial wave
+
 var shader_material: ShaderMaterial = null
 
 func make_palette(colors: Array) -> PackedColorArray:
@@ -22,10 +24,10 @@ func make_palette(colors: Array) -> PackedColorArray:
 		green_step_rate.append	( ( color_i.g - color_j.g ) / float( max_steps_per_segment ) )
 		blue_step_rate.append	( ( color_i.b - color_j.b ) / float( max_steps_per_segment ) )
 		
-	var palette_array: PackedColorArray
+	var palette_array: PackedColorArray = []
 	
 	for i in range( num_segments ):
-		var color_start = Color( colors[i].r / 250.0, colors[i].g / 250.0, colors[i].b / 250.0 )
+		var color_start = Color( colors[i].r / 255.0, colors[i].g / 255.0, colors[i].b / 255.0 )
 		
 		for step in range( max_steps_per_segment + 1 ):
 			if palette_array.size() >= total_steps:
@@ -45,15 +47,39 @@ func create_palette_texture( palette_array: PackedColorArray ) -> Texture2D:
 	var width =		palette_array.size()
 	var height =		1
 	
-	var image = Image.create( width, height, false, Image.FORMAT_RGBA8 )
-	image.set_data( width, height, false, Image.FORMAT_RGBA8, palette_array.to_byte_array() )
-	var texture = ImageTexture.create_from_image( image )
+	var raw_bytes = PackedByteArray()
+	
+	for color in palette_array:
+		# RGBA8 format expects 4 bytes per pixel.
+		# We cast the component float value * 255.0 to an integer byte.
+		raw_bytes.append( int(color.r * 255.0 ) ) # Red (R)
+		raw_bytes.append( int(color.g * 255.0 ) ) # Green (G)
+		raw_bytes.append( int(color.b * 255.0 ) ) # Blue (B)
+		raw_bytes.append( int(color.a * 255.0 ) ) # Alpha (A)
+	
+	var final_image = Image.create_from_data(
+		width, 
+		height, 
+		false, # No mipmaps
+		Image.FORMAT_RGBA8, 
+		raw_bytes
+	)
+	#Save the file to dir
+	var file_path = 'res://imgs/lookup.png'
+	var error = final_image.save_png(file_path)
+	
+	if error != OK:
+		push_error( "Failed to save LUT image to disk: ", error )
+	else:
+		print( "Successfully saved LUT to: ", file_path )
+	
+	var texture = ImageTexture.create_from_image( final_image )
 	
 	return texture
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	shader_material = get_material()
-	if shader_material == null: return
+	shader_material =		get_material()
+	if shader_material ==	null: return
 	
 	var input_colors = [
 		{"r": 255,	"g": 0,		"b": 0},		#RED
@@ -63,11 +89,9 @@ func _ready() -> void:
 	
 	var palette_array =		make_palette( input_colors )
 	var palette_texture =	create_palette_texture( palette_array )
-	shader_material.set_shader_parameter("lut_texture", palette_texture)
+	shader_material.set_shader_parameter( "lut_texture", palette_texture )
 	set_process(true)
 
-
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process( delta: float ) -> void:
 	pass
