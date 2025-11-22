@@ -1,5 +1,6 @@
 res://Scenes/Blasma06.tscn
 res://Shaders/Blasma08.gdshader
+res://Shaders/Blasma07.gdshader
 res://Shaders/UVtest00.gdshader
 res://Shaders/Blasma00.gdshader
 res://Shaders/Blasma01.gdshader
@@ -8,4 +9,5 @@ res://Shaders/Blasma03.gdshader
 res://Shaders/Blasma04.gdshader
 res://Shaders/Blasma05.gdshader
 res://Shaders/Blasma06.gdshader
-res://Shaders/Blasma07.gdshader
+res://Shaders/Blasma09.gdshader
+res://Scenes/Blasma07.tscn

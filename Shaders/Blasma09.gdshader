@@ -1,7 +1,7 @@
 shader_type canvas_item;
 /*
-*	MIXED LUT SHADERS
-*	attempt at mixing different waves together
+*	MIXED LUT RADIAL SHADER
+*	attempt at mixing two lut radial waves together
 */
 
 // -------------------------------------------------------------------- uniforms
@@ -13,25 +13,6 @@ uniform vec2		u_resolution = vec2( 1024.f, 768.f);
 uniform float		u_value = .5f;
 
 // ------------------------------------------------------------------- functions
-float smoothWave(	vec2 coord,
-					float vx,
-					float vy,
-					float phase,
-					float length_scale
-)
-{
-	vec2 direction =	vec2( vx, vy );
-	direction =			normalize( direction );
-
-	float dot_product = dot( direction, coord );
-	float gradient = dot_product * length_scale + phase;
-	
-	//For stepped input
-	//gradient = floor( gradient );
-
-	return ( sin( gradient ) * u_value ) + u_value;
-}
-
 float radialWave(	vec2 coord,
 					float center_x,
 					float center_y,
@@ -71,29 +52,12 @@ void fragment() {
 	vec4 p2 = wave_params[wave_b];
 	s += radialWave( st, p2.x, p2.y, p2.z + TIME * u_speed, p2.w );
 
-//	vec4 p3 = wave_params[wave_c];
-//	s += radialWave( st, p3.x, p3.y, p3.z + TIME * u_speed, p3.w );
+	// third wave possible but must change max_functions to 3.f
+	// and change to uniform wave_params[3]
+	//vec4 p3 = wave_params[wave_c];
+	//s += radialWave( st, p3.x, p3.y, p3.z + TIME * u_speed, p3.w );
 
-	// ---------------------------------------------------------------- smooth waves
-//	float max_functions = 3.f;
-//	vec4 p1 = wave_params[wave_a];
-//	s += smoothWave( st, p1.x, p1.y, p1.z + TIME * u_speed, p1.w );
-
-//	vec4 p2 = wave_params[wave_b];
-//	s += smoothWave( st, p2.x, p2.y, p2.z + TIME * u_speed, p2.w );
-
-//	vec4 p3 = wave_params[wave_c];
-//	s += smoothWave( st, p3.x, p3.y, p3.z + TIME * u_speed, p3.w );
-	// ----------------------------------------------------------------- mixed waves
-//	float max_functions = 2.f;
-//	vec4 p1 = wave_params[wave_a];
-//	s += radialWave( st, p1.x, p1.y, p1.z + TIME * u_speed, p1.w );
-	
-//	vec4 p2 = wave_params[wave_b];
-//	s += smoothWave( st, p2.x, p2.y, p2.z + TIME * u_speed, p2.w );
-
-	s /= max_functions; //not exactly sure why this is needed but it seems to make a difference.
-	// my guess would be because it creates a fractional value from those that have been added together.
+	s /= max_functions; //creates fractional value
 
 	// ------------------------------------------------------------------------- lut
 	vec4 final_color = texture( lut_texture, vec2( s, 0.5 ) );
