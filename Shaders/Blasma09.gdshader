@@ -7,9 +7,7 @@ shader_type canvas_item;
 // -------------------------------------------------------------------- uniforms
 uniform sampler2D	lut_texture;
 uniform vec4		wave_params[2];
-uniform float		u_time = 0.f;
 uniform float		u_speed = 1.0f;
-uniform vec2		u_resolution = vec2( 1024.f, 768.f);
 uniform float		u_value = .5f;
 
 // ------------------------------------------------------------------- functions

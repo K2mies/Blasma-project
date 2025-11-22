@@ -8,9 +8,7 @@
 shader = ExtResource("1_vwox3")
 shader_parameter/lut_texture = ExtResource("2_ambkh")
 shader_parameter/wave_params = PackedVector4Array(0, 0.5, 0, 10, 1, 0.5, 0, 10)
-shader_parameter/u_time = 0.0
 shader_parameter/u_speed = 1.0
-shader_parameter/u_resolution = Vector2(1024, 768)
 shader_parameter/u_value = 0.5
 
 [node name="Node2D" type="Node2D"]
