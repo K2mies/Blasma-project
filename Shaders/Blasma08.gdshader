@@ -4,6 +4,10 @@ shader_type canvas_item;
 *	attempt at mixing different waves together
 */
 
+//*note to change number of waves must update wave_params[n]
+// and change the max_functions variable to n.f
+// can also update the gd script to pass default values to the shader.
+
 // -------------------------------------------------------------------- uniforms
 uniform sampler2D	lut_texture;
 uniform vec4		wave_params[2];
@@ -29,7 +33,8 @@ float smoothWave(	vec2 coord,
 	//For stepped input
 	//gradient = floor( gradient );
 
-	return ( sin( gradient ) * u_value ) + u_value;
+	gradient = sin( gradient );
+	return ( gradient * u_value + u_value );
 }
 
 float radialWave(	vec2 coord,
@@ -50,7 +55,8 @@ float radialWave(	vec2 coord,
 	//For stepped input
 	//gradient = floor( gradient );
 
-	return ( sin( gradient ) * u_value ) + u_value;
+	gradient = sin( gradient );
+	return ( gradient * u_value + u_value );
 }
 
 void fragment() {
