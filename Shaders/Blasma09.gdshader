@@ -31,7 +31,8 @@ float radialWave(	vec2 coord,
 	//For stepped input
 	//gradient = floor( gradient );
 
-	return ( sin( gradient ) * u_value ) + u_value;
+	gradient = sin( gradient );
+	return ( gradient * u_value + u_value );
 }
 
 void fragment() {
